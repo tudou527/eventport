@@ -1,0 +1,24 @@
+.env*
+!.env.example
+*.local
+node_modules/
+.DS_Store
+.next/
+*.log
+.wrangler/
+.cloudflare/
+apps/**/.next/
+apps/**/.dist/
+.vercel
+apps/cli/dist/
+apps/gateway/coverage/
+.workbuddy
+
+# pnpm package cache (virtual store)
+.pnpm-store/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# wrangler local dev secrets
+.dev.vars

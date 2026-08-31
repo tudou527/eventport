@@ -1,0 +1,504 @@
+/* Landing page styles — modularized from the former landing.css.
+ * Reused classes (.container/.btn/.sectionTitle, etc.) hang off the common ancestor .page.
+ * Sizes are normalized to a 4px grid (rem steps of 0.25); SVG in-graph coordinates and stroke widths keep px per the drawing system. */
+
+.page {
+
+  /* Common container */
+  .container {
+    max-width: 68.75rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .containerNarrow {
+    max-width: 47.5rem;
+  }
+
+  /* Link background color behavior (overrides the global a style's underline strategy) */
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Isolation from global element rules: the section/nav spacing globals.css sets for the dashboard is reset to zero on the landing page */
+  section,
+  nav {
+    margin: 0;
+  }
+
+  /* Button (reused by hero / cta) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.15s ease;
+  }
+
+  .btnPrimary {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    border: 1px solid var(--accent);
+  }
+
+  .btnPrimary:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+  }
+
+  .btnSecondary {
+    background: var(--surface);
+    color: var(--fg);
+    border: 1px solid var(--border);
+  }
+
+  .btnSecondary:hover {
+    border-color: var(--border-strong);
+    text-decoration: none;
+  }
+
+  /* Common section */
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .sectionAlt {
+    background: var(--surface-subtle);
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    text-align: center;
+  }
+
+  .sectionSubtitle {
+    color: var(--fg-muted);
+    text-align: center;
+    max-width: 35rem;
+    margin: 0 auto 2.75rem;
+    font-size: 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 1.5rem;
+    text-align: center;
+
+    .heroBadge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--accent-weak);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(1.875rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.5rem;
+    }
+
+    .heroLead {
+      max-width: 40rem;
+      margin: 0 auto 1.5rem;
+      font-size: 1.25rem;
+      color: var(--fg-muted);
+      line-height: 1.65;
+    }
+
+    .trustLine {
+      font-size: 1rem;
+      color: var(--fg-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .heroActions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* Data flow diagram */
+  .flowSection {
+    padding-top: 2rem;
+  }
+
+  .flowDiagram {
+    overflow-x: auto;
+    padding: 0.5rem 0;
+
+    .flowSvg {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .flowConnector {
+    fill: none;
+    stroke: var(--border-strong);
+    stroke-width: 2;
+  }
+
+  .flowConnectorDashed {
+    fill: none;
+    stroke: var(--border-strong);
+    stroke-width: 2;
+    stroke-dasharray: 7 7;
+  }
+
+  .flowConnectorFocal {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+  }
+
+  .flowNode {
+    fill: var(--surface);
+    stroke: var(--border-strong);
+    stroke-width: 1.5;
+  }
+
+  .flowNodeFocal {
+    fill: var(--surface);
+    stroke: var(--accent);
+    stroke-width: 2.5;
+  }
+
+  .flowNodeTitle {
+    font-weight: 700;
+    font-size: 13px;
+    fill: var(--fg);
+  }
+
+  .flowNodeSub {
+    font-size: 10px;
+    fill: var(--fg-muted);
+  }
+
+  .flowLabel {
+    font-size: 12px;
+    fill: var(--accent);
+    font-weight: 600;
+  }
+
+  .flowLegend {
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+
+    .flowLegendItem {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .flowLegendLine {
+        display: inline-block;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 2px;
+      }
+
+      .flowLegendSolid {
+        background: var(--border-strong);
+      }
+
+      .flowLegendDashed {
+        border-top: 2px dashed var(--border-strong);
+        height: 0;
+      }
+
+      .flowLegendAccent {
+        background: var(--accent);
+        height: 3px;
+      }
+    }
+  }
+
+  /* Three-step onboarding */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+
+    .step {
+      display: flex;
+      gap: 1rem;
+
+      .stepNumber {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--accent-foreground);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem;
+      }
+
+      p {
+        color: var(--fg-muted);
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .codeCard {
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.65;
+    overflow-x: auto;
+
+    code {
+      color: var(--fg);
+    }
+  }
+
+  /* Event sources grid */
+  .sourceGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+
+    .sourceCard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+
+      .sourceCardHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+
+        h3 {
+          font-size: 1rem;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+
+      p {
+        color: var(--fg-muted);
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .badgeAvailable {
+    background: var(--success-bg);
+    color: var(--success);
+  }
+
+  .badgeRoadmap {
+    background: var(--surface-subtle);
+    color: var(--fg-muted);
+    border: 1px solid var(--border);
+  }
+
+  /* Features bento */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+
+    .bentoCard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+
+      .featureIcon {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: var(--radius-xl);
+        background: var(--accent-weak);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+      }
+
+      p {
+        color: var(--fg-muted);
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  /* FAQ */
+  .faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .faqItem {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+
+      summary {
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      summary::after {
+        content: '+';
+        font-size: 1.25rem;
+        color: var(--fg-muted);
+      }
+
+      p {
+        color: var(--fg-muted);
+        font-size: 1rem;
+        margin: 0.75rem 0 0;
+      }
+    }
+
+    .faqItem[open] summary::after {
+      content: '−';
+    }
+  }
+
+  /* CTA */
+  .ctaSection {
+    text-align: center;
+    background: var(--surface-subtle);
+  }
+
+}
+
+@media (max-width: 56.25rem) {
+  .page {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+
+    .sourceGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+
+    .hero {
+      padding: 3.5rem 0 1rem;
+    }
+
+    .heroLead {
+      font-size: 1.0625rem;
+    }
+
+    /* Flow diagram: scale SVG to fit container on mobile, no min-width lock */
+    .flowSvg {
+      min-width: 0;
+    }
+
+    .flowLegend {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 35rem) {
+  .page {
+    .hero {
+      padding: 2.5rem 0 1rem;
+    }
+
+    .heroLead {
+      font-size: 1rem;
+    }
+
+    .section {
+      padding: 2.5rem 0;
+    }
+
+    .sectionTitle {
+      font-size: 1.5rem;
+    }
+
+    .sourceGrid,
+    .bento {
+      grid-template-columns: 1fr;
+    }
+
+    .codeCard {
+      padding: 1rem;
+      font-size: 0.6875rem;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+  }
+}

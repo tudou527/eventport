@@ -1,0 +1,24 @@
+{
+  "name": "gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240718.0",
+    "@libsql/client": "^0.9.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^10.8.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^2.0.4",
+    "wrangler": "^3.65.0"
+  }
+}

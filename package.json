@@ -1,0 +1,14 @@
+{
+  "name": "eventport",
+  "version": "0.1.0",
+  "private": true,
+  "description": "EventPort — event gateway monorepo for desktop AI agents",
+  "scripts": {
+    "dev:gateway": "pnpm --filter gateway dev",
+    "dev:site": "pnpm --filter site dev",
+    "deploy:gateway": "pnpm --filter gateway deploy",
+    "build:site": "pnpm --filter site build"
+  },
+  "devDependencies": {},
+  "packageManager": "pnpm@9.0.0"
+}

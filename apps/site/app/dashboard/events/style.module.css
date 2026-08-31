@@ -1,0 +1,65 @@
+/* Filter row: label + subscription dropdown */
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  .filterSelect {
+    width: 15rem;
+  }
+}
+
+/* Empty state / loading placeholder copy */
+.placeholder {
+  color: var(--fg-muted);
+  font-size: 1rem;
+}
+
+.eventsTable {
+  table-layout: fixed;
+
+  .timeCol {
+    width: 11.25rem;
+  }
+
+  .subCol {
+    width: 10rem;
+  }
+
+  .idCol {
+    width: 20rem;
+  }
+
+  .timeCell {
+    white-space: nowrap;
+  }
+
+  .eventId {
+    font-size: 0.75rem;
+    word-break: break-all;
+  }
+
+  .payloadCell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile: the 4-column table is too wide — fix a min-width so the
+ * container scrolls horizontally instead of squishing columns. */
+@media (max-width: 48rem) {
+  .eventsTable {
+    min-width: 40rem;
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: stretch;
+
+    .filterSelect {
+      width: 100%;
+    }
+  }
+}

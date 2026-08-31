@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "eventport",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-07-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    { "pattern": "gw.eventport.dev/*", "zone_name": "eventport.dev" }
+  ],
+  "vars": {
+    "API_VERSION": "v1"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "eventport",
+      "database_id": "cffbde4b-c34a-44ca-ae85-6768a2faa867"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 * * * *"]
+  }
+}

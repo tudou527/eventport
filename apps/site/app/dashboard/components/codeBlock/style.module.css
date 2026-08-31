@@ -1,0 +1,53 @@
+.codeBlock {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  label {
+    width: 6rem;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+  }
+
+  code {
+    padding: 0.5rem 0.75rem;
+    flex: 1;
+    font-size: 0.75rem;
+    word-break: break-all;
+    border-radius: var(--radius-sm);
+    background: var(--surface-subtle);
+  }
+
+  .action {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+
+    button {
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--radius-sm);
+      border: 0 none;
+      background: none;
+      box-shadow: none;
+
+      svg {
+        width: 14px;
+      }
+
+      &:hover {
+        background: var(--bg);
+      }
+    }
+  }
+
+
+  /* Multiline text preserves line breaks */
+  .multiline {
+    white-space: pre-wrap;
+  }
+}

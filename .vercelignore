@@ -1,0 +1,11 @@
+# Local build artifacts and state not needed for Vercel builds.
+# node_modules matches at any depth (gitignore semantics).
+node_modules
+apps/site/.next
+apps/site/.dist
+
+# Vercel only builds apps/site. Skip the gateway entirely, but keep its
+# package.json so `pnpm install --frozen-lockfile` still sees a workspace
+# layout that matches pnpm-lock.yaml.
+apps/gateway/*
+!apps/gateway/package.json

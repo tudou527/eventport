@@ -1,0 +1,177 @@
+/* Subscription row: collapsible card built on <details>/<summary>.
+ * Collapsed = single row; expanded = inline config body. */
+
+.card {
+  /* background: var(--bg-card); */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  .summary {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 0.75rem 1rem 1rem;
+    gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+
+    .basic {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+
+      .logo {
+        width: 1.5rem;
+        height: 1.5rem;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--fg);
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex-shrink: 1;
+      }
+
+      .disabledBadge {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--destructive);
+        background: var(--danger-bg);
+        border-radius: 999px;
+        line-height: 1.4;
+      }
+
+      .meta {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--fg-muted);
+        background: var(--surface-subtle);
+        border-radius: 999px;
+        line-height: 1.4;
+      }
+    }
+
+    .chevron {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--fg);
+      transform: rotate(270deg);
+      transition: transform 0.2s ease, color 0.15s ease;
+      flex-shrink: 0;
+    }
+  }
+
+  &[open] .summary {
+    .chevron {
+      transform: rotate(360deg);
+    }
+  }
+
+  .tabs {
+    gap: 0;
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+
+    div[data-slot="tabs-content"] {
+      padding: 1rem 0 0;
+    }
+
+    /* Intro sentence with the inline agent Select */
+    .agentInfo {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin: 0 0 1rem 0;
+      font-size: 0.875rem;
+    }
+
+    .agentSelect {
+      max-width: 12rem;
+    }
+
+    /* Per-event instruction template editor */
+    .instructions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+
+      .instructionsHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .instructionsTitle {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--fg);
+      }
+
+      .instructionsHint {
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        color: var(--fg-muted);
+      }
+
+      .instructionsInput {
+        width: 100%;
+        min-height: 6rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+        font-family: var(--font-mono);
+        line-height: 1.6;
+        color: var(--fg);
+        background: var(--surface-subtle);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        resize: vertical;
+
+        &:focus {
+          outline: none;
+          border-color: var(--border-strong);
+        }
+
+        &::placeholder {
+          color: var(--fg-muted);
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+  }
+}

@@ -1,0 +1,49 @@
+.setupStep {
+  .header {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 0;
+    gap: 0.875rem;
+
+    .fieldItem {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+
+      label {
+        width: 6rem;
+        font-size: 0.75rem;
+        color: var(--fg-muted);
+      }
+
+      .fieldContent {
+        flex: 1;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .githubContent {
+    .note {
+      padding: 0.5rem 0 0 6rem;
+      font-size: 0.75rem;
+    }
+  }
+}

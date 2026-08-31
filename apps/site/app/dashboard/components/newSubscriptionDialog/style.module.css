@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  /* Single field block */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Field description */
+  .hint {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+  }
+}

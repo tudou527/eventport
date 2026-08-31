@@ -1,0 +1,23 @@
+.active,
+.revoked {
+  gap: 0.25rem;
+  border: none;
+
+  &::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+}
+
+.active {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.revoked {
+  background: var(--danger-bg);
+  color: var(--danger);
+}

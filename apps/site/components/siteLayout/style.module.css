@@ -1,0 +1,489 @@
+/* Shared site chrome — extracted from the former landing page styles so the
+ * /agent/* setup pages carry the same header/footer. Sizes follow the 4px
+ * grid (rem steps of 0.25) used across the site. */
+
+.page {
+
+  /* Common container */
+  .container {
+    max-width: 68.75rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Link background color behavior (overrides the global a style's underline strategy) */
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Isolation from global element rules: the section/nav spacing globals.css sets for the dashboard is reset to zero on public pages */
+  section,
+  nav {
+    margin: 0;
+  }
+
+  /* Brand logo (header and footer) */
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--fg);
+
+    img {
+      width: 2rem;
+      border-radius: var(--radius-sm);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Text-only logo variant used in the footer */
+  .logoDot {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* Buttons (header Console) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.15s ease;
+  }
+
+  .btnPrimary {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    border: 1px solid var(--accent);
+  }
+
+  .btnPrimary:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+  }
+
+  /* Top nav */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+
+    .headerInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex: 1;
+      justify-content: center;
+
+      a {
+        font-size: 1rem;
+        color: var(--fg-muted);
+        font-weight: 500;
+      }
+
+      a:hover {
+        color: var(--fg);
+        text-decoration: none;
+      }
+
+      /* Current page tab (agent setup pages) */
+      .navActive {
+        color: var(--fg);
+        font-weight: 700;
+      }
+
+      .navGithub {
+        color: var(--fg-muted);
+        display: grid;
+        place-items: center;
+      }
+
+      .navGithub:hover {
+        color: var(--fg);
+      }
+
+      /* Agents dropdown (desktop: hover/focus reveals the menu) */
+      .navDropdown {
+        position: relative;
+      }
+
+      .navDropdownToggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--fg-muted);
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .navDropdownToggle:hover {
+        color: var(--fg);
+      }
+
+      .dropdownMenu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 11rem;
+        padding: 0.5rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow);
+
+        a {
+          display: block;
+          padding: 0.5rem 0.75rem;
+          border-radius: var(--radius-sm);
+          font-size: 0.9375rem;
+          color: var(--fg-muted);
+          white-space: nowrap;
+        }
+
+        a:hover {
+          color: var(--fg);
+          background: var(--surface-subtle);
+          text-decoration: none;
+        }
+      }
+
+      .navDropdown:hover .dropdownMenu,
+      .navDropdown:focus-within .dropdownMenu {
+        display: block;
+      }
+    }
+
+    /* Signed-in user menu (session-aware replacement for the Console button) */
+    .userMenu {
+      position: relative;
+    }
+
+    .userMenuToggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      cursor: pointer;
+      color: var(--fg-muted);
+      border-radius: var(--radius-md);
+    }
+
+    .userMenuToggle:hover {
+      color: var(--fg);
+    }
+
+    .userAvatar {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-foreground);
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .userMenuDropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      min-width: 13rem;
+      padding: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      text-align: left;
+
+      a {
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.9375rem;
+        color: var(--fg-muted);
+        white-space: nowrap;
+      }
+
+      a:hover {
+        color: var(--fg);
+        background: var(--surface-subtle);
+        text-decoration: none;
+      }
+    }
+
+    .userMenu:hover .userMenuDropdown,
+    .userMenu:focus-within .userMenuDropdown {
+      display: block;
+    }
+
+    .userMenuEmail {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.25rem;
+      overflow-wrap: anywhere;
+    }
+
+    .userMenuLogout {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font: inherit;
+      font-size: 0.9375rem;
+      color: var(--fg-muted);
+      text-align: left;
+      white-space: nowrap;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .userMenuLogout:hover {
+      color: var(--fg);
+      background: var(--surface-subtle);
+    }
+
+    /* Hamburger toggle (hidden on desktop, shown on mobile via media query) */
+    .navToggle {
+      display: none;
+    }
+
+    .navBurger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+
+      span {
+        display: block;
+        height: 2px;
+        background: var(--fg);
+        border-radius: 2px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+    }
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3.5rem 0 1.5rem;
+
+    .footerInner {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 2.5rem;
+
+      .footerBrand p {
+        color: var(--fg-muted);
+        font-size: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .footerCol {
+        h4 {
+          font-size: 1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          margin: 0 0 1rem;
+        }
+
+        a {
+          display: block;
+          color: var(--fg-muted);
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        a:hover {
+          color: var(--fg);
+          text-decoration: none;
+        }
+      }
+    }
+
+    .footerBottom {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--fg-subtle);
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 56.25rem) {
+  .page {
+    /* Mobile nav: show burger, hide the horizontal list until the checkbox
+     * is checked. Console button stays in the header (right side). */
+    .header {
+      .navBurger {
+        display: flex;
+        order: 1;
+      }
+
+      .navToggle:checked ~ .navBurger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .navToggle:checked ~ .navBurger span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navToggle:checked ~ .navBurger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 1rem 1rem;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+
+        a {
+          padding: 0.875rem 0.5rem;
+          border-bottom: 1px solid var(--border);
+          font-size: 1rem;
+          color: var(--fg);
+          border-radius: var(--radius-sm);
+        }
+
+        a:hover {
+          color: var(--accent);
+          background: var(--surface-subtle);
+          text-decoration: none;
+        }
+
+        a:last-child {
+          border-bottom: none;
+        }
+
+        .navGithub {
+          display: none;
+        }
+
+        /* Agents dropdown flattens into the mobile menu */
+        .navDropdownToggle {
+          width: 100%;
+          justify-content: space-between;
+          padding: 0.875rem 0.5rem;
+          border-bottom: 1px solid var(--border);
+          font-size: 1rem;
+          color: var(--fg);
+        }
+
+        .dropdownMenu {
+          display: block;
+          position: static;
+          transform: none;
+          min-width: 0;
+          padding: 0;
+          background: none;
+          border: none;
+          box-shadow: none;
+
+          a {
+            padding-left: 1.25rem;
+          }
+        }
+      }
+
+      .navToggle:checked ~ .nav {
+        display: flex;
+      }
+    }
+
+    .footer {
+      padding: 2.5rem 0 1.25rem;
+
+      .footerInner {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+      }
+
+      .footerBottom {
+        margin-top: 1.75rem;
+        padding-top: 1rem;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 35rem) {
+  .page {
+    .footer {
+      padding: 2rem 0 1rem;
+
+      .footerInner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footerBottom {
+        margin-top: 1.5rem;
+        font-size: 0.8125rem;
+      }
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+  }
+}

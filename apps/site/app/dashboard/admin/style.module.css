@@ -1,0 +1,38 @@
+/* Admin tables (shared by Users & Subscriptions tabs) */
+.adminTable {
+  .actionCol {
+    width: 5.5rem;
+  }
+
+  .userName {
+    color: var(--fg-muted);
+    margin-left: 0.5rem;
+  }
+
+  .rateLimitInput {
+    width: 5rem;
+  }
+
+  .revokedRow {
+    opacity: 0.55;
+  }
+
+  .actionBtn {
+    min-width: 4.5rem;
+    justify-content: center;
+  }
+
+  .dangerAction {
+    color: var(--danger);
+
+    &:hover {
+      background: var(--danger);
+      border-color: var(--danger);
+      color: var(--danger-foreground);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    min-width: 52rem;
+  }
+}
