@@ -14,6 +14,9 @@ apps/cli/dist/
 apps/gateway/coverage/
 .workbuddy
 
+# local-only dev hooks (per-branch git identity); not part of the published repo
+.githooks/
+
 # pnpm package cache (virtual store)
 .pnpm-store/
 
