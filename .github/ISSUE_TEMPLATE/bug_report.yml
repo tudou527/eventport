@@ -1,0 +1,78 @@
+name: Bug report
+description: Something is not working the way the README describes
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a report.
+
+        **Please redact tokens (`egw_*` / `egc_*`) and any secrets in payloads
+        before submitting.** A leaked consumer token can be revoked in the
+        dashboard, but it is better if it never becomes public.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Gateway (Cloudflare Workers)
+        - Site / Dashboard
+        - Agent install guide (/agent/*)
+        - Self-hosting / setup
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Webhook source
+      description: Which subscription source was involved, if any?
+      placeholder: github, linear, stripe, custom, ...
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you observe? Include the HTTP status and response body where relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Create a subscription with source = github
+        2. Point a repository webhook at the URL
+        3. Push a commit
+        4. Poll GET /events
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Release tag, or the commit SHA if you are running from source.
+      placeholder: v0.1.0
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have redacted tokens and secrets from this report
+          required: true
+        - label: I checked the existing issues for a duplicate
+          required: true

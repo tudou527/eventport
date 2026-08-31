@@ -2,7 +2,21 @@
 
 A public webhook inbox for local AI agents.
 
-> The public marketing site is branded **EventPort**.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+> The public marketing site is branded **EventPort** and lives at
+> [eventport.dev](https://eventport.dev).
+
+**Quick start (60 seconds):** create a subscription to get a public webhook URL,
+point any platform at it, then let your agent poll:
+
+```bash
+curl -s "https://gw.eventport.dev/events?limit=10" \
+  -H "Authorization: Bearer egc_xxx"
+```
+
+EventPort is MIT licensed and self-hostable — see
+[Deploying your own](#gateway-setup).
 
 ```
 External SaaS webhook
@@ -188,6 +202,14 @@ dead-letter queue).
 See the agent setup pages on the site (`/agent/dsh/`, `/agent/pi/`, `/agent/exec/`)
 for per-agent install guides with full adapter source.
 
+## Contributing
+
+Bug reports, new webhook sources, and new agent adapters are all welcome — see
+[`CONTRIBUTING.md`](./CONTRIBUTING.md) for the development setup and the two
+conventions that are easy to miss. Security issues are handled privately, per
+[`SECURITY.md`](./SECURITY.md). Participation is governed by the
+[Code of Conduct](./CODE_OF_CONDUCT.md).
+
 ## License
 
-MIT
+[MIT](./LICENSE) © 2026 tudou527

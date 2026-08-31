@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/tudou527/eventport/security/advisories/new
+    about: Please report security issues privately — see SECURITY.md. Do not open a public issue.
+  - name: Question or idea
+    url: https://github.com/tudou527/eventport/discussions
+    about: Ask questions and discuss with the community.
+  - name: Contributing guide
+    url: https://github.com/tudou527/eventport/blob/main/CONTRIBUTING.md
+    about: Read this before opening a pull request.

@@ -1,0 +1,54 @@
+name: Feature request
+description: Suggest a new source, adapter, or capability
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        EventPort keeps a deliberately short roadmap. The most convincing
+        requests describe a concrete situation where the current behaviour
+        blocked you.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request is this
+      options:
+        - New webhook source
+        - New agent adapter
+        - Gateway behaviour
+        - Dashboard / UX
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do that EventPort cannot do today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: If you already have an approach in mind, describe it here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Including workarounds you are using today.
+
+  - type: input
+    id: source-docs
+    attributes:
+      label: Reference
+      description: For a new source, a link to the vendor's webhook signature docs helps a lot.
+      placeholder: https://...

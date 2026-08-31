@@ -108,7 +108,11 @@ export default function SiteLayout({ activeAdapter, children }: SiteLayoutProps)
           </div>
         </div>
         <div className={`${style.container} ${style.footerBottom}`}>
-          <p>&copy; 2026 EventPort. All rights reserved.</p>
+          <div className={style.footerLegal}>
+            <p>&copy; 2026 EventPort. All rights reserved.</p>
+            <a href="/legal/privacy/">Privacy</a>
+            <a href="/legal/terms/">Terms</a>
+          </div>
         </div>
       </footer>
     </div>

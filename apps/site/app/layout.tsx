@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s — EventPort",
   },
   description:
-    "Aggregate webhooks, RSS feeds, webpage changes, and social media updates into a unified event stream your local AI agent can consume.",
+    "Aggregate webhooks from any platform into a unified event stream your local AI agent can consume.",
   alternates: {
     canonical: "/",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "EventPort — Change Detection for AI Agents",
     description:
-      "Aggregate webhooks, RSS feeds, webpage changes, and social media updates into a unified event stream your local AI agent can consume.",
+      "Aggregate webhooks from any platform into a unified event stream your local AI agent can consume.",
     siteName: "EventPort",
     locale: "en_US",
     images: [{ url: "/logo.png", width: 512, height: 512, alt: "EventPort" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EventPort — Change Detection for AI Agents",
     description:
-      "Aggregate webhooks, RSS feeds, webpage changes, and social media updates into a unified event stream your local AI agent can consume.",
+      "Aggregate webhooks from any platform into a unified event stream your local AI agent can consume.",
   },
   robots: {
     index: true,
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     "webhook",
     "change detection",
     "event gateway",
-    "RSS feed",
     "webhook relay",
+    "webhook inbox",
     "AI agent inbox",
     "event stream",
     "developer tools",
